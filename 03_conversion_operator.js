@@ -110,6 +110,6 @@ console.table([
     {oldValue:string,oldType:typeof string,Newvalue:num3,newType:typeof num3},
     {oldValue:string1,oldType:typeof string1,Newvalue:num5,newType:typeof num5},
 ])
-
+// .
 // 5--parseFloat
 // it extract float part from string
