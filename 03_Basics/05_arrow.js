@@ -1,34 +1,34 @@
-// // ======================= this keyword =======================
+// ======================= this keyword =======================
 
-// const user = {
-//   username: "sameer",
-//   price: 999,
+const user = {
+  username: "sameer",
+  price: 999,
 
-//   // Object method
-//   welcome: function () {
-//     // 'this' current object ko refer karta hai
-//     console.log(`${this.username}, Welcome to website`);
+  // Object method
+  welcome: function () {
+    // 'this' current object ko refer karta hai
+    console.log(`${this.username}, Welcome to website`);
 
-//     // Current object print hoga
-//     console.log(this);
-//   },
-// };
+    // Current object print hoga
+    console.log(this);
+  },
+};
 
-// // Method call
-// user.welcome();
+// Method call
+user.welcome();
 
-// // Object ki property update ki
-// user.username = "sam";
+// Object ki property update ki
+user.username = "sam";
 
-// // Updated value print hogi
-// user.welcome();
+// Updated value print hogi
+user.welcome();
 
-// // Global scope me
-// // Node.js => {}
-// // Browser => Window object
-// console.log(this);
+// Global scope me
+// Node.js => {}
+// Browser => Window object
+console.log(this);
 
-// // Browser me global object = Window
+// Browser me global object = Window
 
 
 // ======================= Normal Function =======================
