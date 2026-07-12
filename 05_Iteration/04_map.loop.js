@@ -25,14 +25,63 @@ map.set('IN', 'India');
 // Pura Map dekhne ke liye
 console.log(map);
 
+
+
+
+
+/// ===================== for...of with Object =====================
+
+// ❌ Agar 'map' ek normal JavaScript Object hai, to us par for...of use nahi kar sakte.
+
+// for (const key of map) {
+//     console.log(key);
+// }
+
+// Error:
+// TypeError: map is not iterable
+
+// Reason:
+// for...of sirf iterable objects par chalta hai.
+// Jaise:
+// ✅ Array
+// ✅ String
+// ✅ Map
+// ✅ Set
+
+// Normal Object iterable nahi hota,
+
+
+// ---------------------------------------------------------------------------------------
 // for...of loop se Map ko iterate karna
+// ---------------------------------------------------------------------------------------
+
 // Destructuring ki help se key aur value alag-alag mil jati hain.
 for (const [key, value] of map) {
     // Har iteration me key aur uski value print hogi
-    // Output:
-    // IN :- India
-    // USA :- United State Of America
-    // Fr :- France
+    
 
     console.log(key, ':-', value);
 }
+
+
+
+// ===================== for...in with Map =====================
+
+// ❌ for...in loop Map ke saath kaam nahi karta.
+
+// for...in ka use object ki enumerable properties (keys) ko iterate karne ke liye hota hai.
+// Map ek iterable object hai, normal object nahi.
+
+// Isliye ye loop koi output nahi dega.
+for (const key in map) {
+
+    // Ye execute nahi hoga.
+    // console.log(key);
+}
+
+// ✅ Map ko iterate karne ke liye hamesha for...of use karo.
+
+// Example:
+// for (const [key, value] of map) {
+//     console.log(key, value);
+// }
