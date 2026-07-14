@@ -1,0 +1,98 @@
+JavaScript: Difference Between forEach(), map(), and filter()
+//--------------------------------------------------------------------------------------------
+1. forEach()
+
+Purpose:
+- Used to loop through each element of an array.
+- Performs an action for every element.
+
+Returns:
+- undefined
+
+Example:
+
+const nums = [1, 2, 3, 4, 5];
+
+const result = nums.forEach((num) => {
+    console.log(num);
+});
+
+console.log(result);
+
+Output:
+1
+2
+3
+4
+5
+undefined
+
+// ---------------------------------------------------------------------------------------------
+2. map()
+
+Purpose:
+- Used to transform every element of an array.
+- Creates a new array with modified values.
+
+Returns:
+- New array
+
+Example:
+
+const nums = [1, 2, 3, 4, 5];
+
+const result = nums.map((num) => {
+    return num * 10;
+});
+
+console.log(result);
+
+Output:
+[10, 20, 30, 40, 50]
+
+//---------------------------------------------------------------------------------------------
+3. filter()
+
+Purpose:
+- Used to select elements based on a condition.
+- Returns only those elements where the condition is true.
+
+Returns:
+- New array
+
+Example:
+
+const nums = [1, 2, 3, 4, 5];
+
+const result = nums.filter((num) => {
+    return num > 3;
+});
+
+console.log(result);
+
+Output:
+[4, 5]
+
+//----------------------------------------------------------------------------------------
+Quick Difference:
+
+forEach()
+→ Do something with every item
+→ Does not return an array
+
+map()
+→ Change every item
+→ Returns a new array
+→ Length remains same
+
+filter()
+→ Select some items
+→ Returns a new array
+→ Length may change
+
+
+Easy Trick:
+
+forEach  = Loop
+map      = Modify
+filter   = Select
