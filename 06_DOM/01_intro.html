@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- Ye batata hai ki document HTML5 version ka hai -->
+
+<html lang="en">
+<!-- HTML document start, language English set ki gayi hai -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- UTF-8 character encoding use hoti hai taaki sabhi characters sahi dikhen -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Responsive design ke liye. Mobile par page sahi scale hota hai -->
+
+    <title>Document</title>
+    <!-- Browser tab me ye title dikhega -->
+</head>
+
+<body>
+    <!-- Body ke andar page ka visible content hota hai -->
+
+    <div class="bg-black">
+        <!-- Ye ek container (div) hai jisme class "bg-black" di gayi hai -->
+
+        <h1 id="title" class="heading">
+            DOM learning on Chai aur Code
+        </h1>
+        <!-- Heading element
+             id="title" -> getElementById() se select kar sakte hain
+             class="heading" -> CSS ya querySelector() se use kar sakte hain -->
+
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Doloremque nihil quis similique.
+        </p>
+        <!-- Paragraph element -->
+    </div>
+
+    <script>
+        // document poore HTML page ko represent karta hai
+
+        // getElementById() id ke basis par element ko select karta hai
+        const heading = document.getElementById("title");
+
+        // innerHTML element ke andar ka HTML content return karta hai
+        console.log(heading.innerHTML);
+
+        // innerHTML se content change bhi kar sakte hain
+        heading.innerHTML = "Welcome to <span>JavaScript DOM</span>";
+    </script>
+
+</body>
+</html>
+
+<!-- ====================== DOM Notes ====================== -->
+
+<!-- getElementById()
+     Kisi bhi HTML element ko uski unique id ke through select karta hai.
+     Example:
+     document.getElementById("title")
+-->
+
+<!-- innerHTML
+     Element ke andar ka poora HTML content read ya update karta hai.
+
+     Read:
+     console.log(heading.innerHTML);
+
+     Update:
+     heading.innerHTML = "Hello <b>World</b>";
+
+     Output:
+     Hello World (World bold me dikhega)
+-->
