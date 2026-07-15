@@ -13,28 +13,56 @@
 
     <title>Document</title>
     <!-- Browser tab me ye title dikhega -->
+    <style>
+        .bg-black {
+            background-color: black;
+            color: white;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
 </head>
 
-<body>
-    <!-- Body ke andar page ka visible content hota hai -->
+<body class="bg-black">
 
-    <div class="bg-black">
-        <!-- Ye ek container (div) hai jisme class "bg-black" di gayi hai -->
+
+    <div>
+
 
         <h1 id="title" class="heading">
-            DOM learning on Chai aur Code
+            DOM learning on Chai aur Code <span style="display: none;">Test case</span>
         </h1>
-        <!-- Heading element
-             id="title" -> getElementById() se select kar sakte hain
-             class="heading" -> CSS ya querySelector() se use kar sakte hain -->
+        <h2>
+            Lorem ipsum dolor sit amet.
+        </h2>
+        <h2>
+            Lorem ipsum dolor sit amet.
+        </h2>
+        <h2>
+            Lorem ipsum dolor sit amet.
+        </h2>
+       <ul>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+       </ul>
 
         <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit.
             Doloremque nihil quis similique.
         </p>
-        <!-- Paragraph element -->
+
     </div>
 
+
+
+
+
+</body>
+
+</html>
+
+<!-- 
     <script>
         // document poore HTML page ko represent karta hai
 
@@ -46,10 +74,10 @@
 
         // innerHTML se content change bhi kar sakte hain
         heading.innerHTML = "Welcome to <span>JavaScript DOM</span>";
-    </script>
+    </script> -->
 
-</body>
-</html>
+
+
 
 <!-- ====================== DOM Notes ====================== -->
 
@@ -70,5 +98,5 @@
 
      Output:
      Hello World (World bold me dikhega)
-     
+
 -->
