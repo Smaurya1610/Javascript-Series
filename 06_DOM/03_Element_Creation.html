@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sameer</title>
+</head>
+
+<!-- Black background with white text -->
+<body style="background-color: black; color: white;">
+
+</body>
+
+<script>
+
+    // Create a new <div> element
+    const div = document.createElement('div');
+
+    // Print the newly created div in the console
+    console.log(div);
+
+    // Add a class to the div
+    div.className = "main";
+
+    // Assign a fixed ID (commented out)
+    // div.id = "Myid";
+
+    // Generate a random ID between 1 and 11
+    div.id = Math.round(Math.random() * 10 + 1);
+
+    // Add an attribute (title)
+    div.setAttribute("title", "generated title");
+
+    // Set the background color
+    div.style.backgroundColor = "green";
+
+    // Add padding inside the div
+    div.style.padding = "12px";
+
+    // Method 1: Add text directly (commented out)
+    // div.innerText = "Chai aur code";
+
+    // Method 2: Create a text node
+    const add_text = document.createTextNode("Chai aur code");
+
+    // Append the text node inside the div
+    div.appendChild(add_text);
+
+    // Finally, add the div to the body of the webpage
+    document.body.appendChild(div);
+
+</script>
+</html>
