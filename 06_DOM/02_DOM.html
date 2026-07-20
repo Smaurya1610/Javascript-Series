@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body style="background-color: black; color: white;">
+
+    <!-- Parent container -->
+    <div class="parent">
+        <!-- this is a comment -->
+
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednusday</div>
+        <div class="day">Thrusday</div>
+    </div>
+
+</body>
+
+<script>
+
+    // Select the parent div
+    const parent = document.querySelector('.parent');
+
+    // Print the parent element
+    console.log(parent);
+
+    // parent.children returns an HTMLCollection
+    // It contains only element nodes (not text/comments)
+    console.log(parent.children);
+
+    // Access the third child (index starts from 0)
+    console.log(parent.children[2].innerHTML);
+
+    // Loop through all child elements
+    for (let i = 0; i < parent.children.length; i++) {
+
+        // Print the text inside each child
+        console.log(parent.children[i].innerHTML);
+    }
+
+    // Change the color of the third child (Wednesday)
+    parent.children[2].style.color = "orange";
+
+    // Get the first child element
+    console.log(parent.firstElementChild);
+
+    // Get the last child element
+    console.log(parent.lastElementChild);
+
+    // Select the first element with class "day"
+    const day1 = document.querySelector('.day');
+
+    // Print the first .day element
+    console.log(day1);
+
+    // Get the parent of the selected element
+    console.log(day1.parentElement);
+
+    // Get the next sibling element
+    console.log(day1.nextElementSibling);
+
+    // childNodes returns a NodeList
+    // It includes:
+    // 1. Text nodes (spaces/new lines)
+    // 2. Comment nodes
+    // 3. Element nodes
+    console.log("NODES :", parent.childNodes);
+
+</script>
+
+</html>
