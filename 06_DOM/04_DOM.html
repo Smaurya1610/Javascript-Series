@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sameer kushwaha</title>
+</head>
+
+<body style="background-color: rgb(46, 46, 14); color: white;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>// -------------------------
+// CREATE NEW LANGUAGE ITEMS
+// -------------------------
+
+// Function to add a new language using innerHTML
+function addlanguage(langName) {
+
+    // Create a new <li> element
+    const li = document.createElement('li');
+
+    // Add text using innerHTML
+    // innerHTML parses the HTML string every time,
+    // so it is comparatively slower.
+    li.innerHTML = `${langName}`;
+
+    // Select the <ul> and append the new <li>
+    document.querySelector('.language').appendChild(li);
+}
+
+// Add new languages
+addlanguage("Python");
+addlanguage("C++");
+
+
+// ------------------------------------
+// OPTIMIZED WAY TO ADD NEW LIST ITEMS
+// ------------------------------------
+
+function addOptLanguage(langName) {
+
+    // Create a new <li> element
+    const li = document.createElement('li');
+
+    // Create a text node and append it
+    // createTextNode() does not parse HTML,
+    // so it is faster and more secure.
+    li.appendChild(document.createTextNode(langName));
+
+    // Append the new <li> to the list
+    document.querySelector(".language").appendChild(li);
+}
+
+// Add another language
+addOptLanguage("Sam");
+
+
+// ==========================
+// EDITING EXISTING ELEMENTS
+// ==========================
+
+// Select the second <li>
+// Current list:
+// 1. Javascript
+// 2. Python
+// 3. C++
+// 4. Sam
+const secondLang = document.querySelector("li:nth-child(2)");
+
+console.log(secondLang);
+
+// Method 1 (Not Optimized)
+// Replaces content by parsing HTML
+// secondLang.innerHTML = "Mongo";
+
+// Method 2
+// Appends extra text instead of replacing
+// secondLang.appendChild(document.createTextNode(" hii"));
+
+
+// Create a new <li> element
+const newli = document.createElement("li");
+
+console.log(newli);
+
+// Set text inside the new element
+newli.textContent = "Mongo";
+
+// Replace the second <li> (Python) with Mongo
+secondLang.replaceWith(newli);
+
+
+// ==========================
+// REPLACE FIRST ELEMENT
+// ==========================
+
+// Select the first <li>
+const firstLang = document.querySelector("li:first-child");
+
+// Replace the entire first element
+// Javascript → TypeScript
+firstLang.outerHTML = `<li>TypeScript</li>`;
+
+
+// ==========================
+// REMOVE LAST ELEMENT
+// ==========================
+
+// Select the last <li>
+// At this point the last item is "Sam"
+const lastlanguage = document.querySelector("li:last-child");
+
+// Remove the last element from the DOM
+lastlanguage.remove();
+
+
+// ==========================
+// FINAL OUTPUT
+// ==========================
+
+// <ul class="language">
+//     <li>TypeScript</li>
+//     <li>Mongo</li>
+//     <li>C++</li>
+// </ul>
+</script>
+
+</html>
