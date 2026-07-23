@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amaging Images</h2>
+    <div>
+        <ul id="image">
+            <li><img width="200px" height="190px" id="photoshop" src="A.jpg" alt="photoshop"></li>
+            <li><img width="200px" height="190px" id="river" src="B.jpg" alt=""></li>
+            <li><img width="200px" height="190px" id="mountain" src="C.jpg" alt=""></li>
+            <!-- first approach -->
+            <!-- <li><img width="200px" height="190px" id="mountain" src="C.jpg" alt="" onclick="alert('Mountain')"></li> -->
+            <li><img wdth="200px" height="190px" id="plant" src="D.jpg" alt=""></li>
+            <li><a style="color: red;" href="http://google.com" id="google">Google</a></li>
+        </ul>
+
+    </div>
+</body>
+<script>
+
+// ================= FIRST WAY =================
+// Inline event (Not Recommended)
+// <img onclick="alert('Mountain')">
+
+// ================= SECOND WAY =================
+// Assigning event using onclick
+// Limitation: Only one click function can be attached.
+
+document.getElementById('mountain').onclick = function () {
+    alert('mountain clicked')
+}
+
+
+// ================= THIRD WAY (Best Practice) =================
+// addEventListener() allows multiple events on the same element.
+//
+// Syntax:
+// element.addEventListener(eventName, callback, useCapture)
+//
+// eventName  -> "click", "keydown", etc.
+// callback   -> Function that runs when event occurs.
+// useCapture -> true  = Capturing
+//               false = Bubbling (Default)
+
+document.getElementById('mountain').addEventListener('click', function(e){
+    console.log(e)   // Prints complete event object
+}, true)
+
+
+// ================= EVENT CAPTURING =================
+// Flow:
+// Parent  ---> Child
+//
+// If useCapture = true,
+// event starts from parent and moves towards child.
+
+document.getElementById('image').addEventListener('click', function(e){
+    console.log('clicked inside the ul')
+}, true)
+
+document.getElementById('mountain').addEventListener('click', function(e){
+    console.log('mountain clicked')
+}, true)
+
+
+// ================= EVENT BUBBLING =================
+// Flow:
+// Child ---> Parent
+//
+// Default behavior (false)
+// Event first runs on child,
+// then automatically goes to parent.
+
+document.getElementById('image').addEventListener('click', function(e){
+    console.log('clicked inside the ul')
+}, false)
+
+document.getElementById('mountain').addEventListener('click', function(e){
+    console.log('mountain clicked')
+}, false)
+
+
+// ================= CURRENT CODE =================
+
+// Event listener attached on UL (parent)
+document.getElementById('image').addEventListener('click', function(e){
+    console.log('clicked inside the ul');
+}, false);
+
+
+// Event listener attached on mountain image (child)
+document.getElementById('mountain').addEventListener('click', function(e){
+    console.log('mountain clicked');
+
+    // Stops event bubbling.
+    // Without this, after clicking the mountain,
+    // the UL event will also execute.
+    e.stopPropagation();
+
+}, false);
+
+
+// Event listener on Google link
+document.getElementById("google").addEventListener('click', function(e){
+
+    // Prevents the default behavior.
+    // Normally clicking the link opens Google.
+    // After preventDefault(), the page will NOT navigate.
+    e.preventDefault();
+
+    console.log("google clicked");
+
+    // Stops event from reaching the parent (UL).
+    e.stopPropagation();
+
+}, false);
+</script>
+</html>
