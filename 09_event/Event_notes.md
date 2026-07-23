@@ -86,6 +86,7 @@ button.addEventListener("click", myFunction);
 // true  -> Capturing
 // false -> Bubbling (Default)
 ```
+# Event Object
 ```Javascript
 // ===========================================================
 // Event Object (e)
@@ -104,6 +105,7 @@ button.addEventListener("click",function(e){
 // Event Object stores complete information
 // about the current event.
 ```
+# Important Event Properties
 ```Javascript
 // ===========================================================
 // Important Event Properties
@@ -267,11 +269,13 @@ e.cancelable
 
 e.eventPhase
 ```
+# Common Event
 ```Javascript
 // ===========================================================
 // Common Events
 // ===========================================================
-
+```
+```Javascript
 // Mouse Events
 
 click
@@ -286,7 +290,8 @@ mouseleave
 contextmenu
 
 // -----------------------------------------------------------
-
+```
+```Javascript
 // Keyboard Events
 
 keydown
@@ -294,7 +299,8 @@ keyup
 keypress (Deprecated)
 
 // -----------------------------------------------------------
-
+```
+```Javascript
 // Form Events
 
 submit
@@ -305,7 +311,8 @@ blur
 reset
 
 // -----------------------------------------------------------
-
+```
+```Javascript
 // Window Events
 
 load
@@ -315,7 +322,8 @@ scroll
 beforeunload
 
 // -----------------------------------------------------------
-
+```
+```Javascript
 // Clipboard Events
 
 copy
@@ -323,7 +331,8 @@ cut
 paste
 
 // -----------------------------------------------------------
-
+```
+```Javascript
 // Drag Events
 
 drag
@@ -335,13 +344,16 @@ dragover
 drop
 
 // -----------------------------------------------------------
-
+```
+```Javascript
 // Touch Events
 
 touchstart
 touchmove
 touchend
-
+```
+# Event Bubbling
+```Javascript
 // ===========================================================
 // Event Bubbling
 // ===========================================================
@@ -359,7 +371,9 @@ Grand Parent
 // Third parameter = false
 
 element.addEventListener("click", fun, false);
-
+```
+# Event Capturing
+```Javascript
 // ===========================================================
 // Event Capturing
 // ===========================================================
@@ -375,7 +389,9 @@ Child
 // Third parameter = true
 
 element.addEventListener("click", fun, true);
-
+```
+# PreventDefault
+```Javascript
 // ===========================================================
 // preventDefault()
 // ===========================================================
@@ -393,7 +409,9 @@ link.addEventListener("click",function(e){
 // Example:
 // Link will not open
 // Form will not submit
-
+```
+# Stop Propagation
+```Javascript
 // ===========================================================
 // stopPropagation()
 // ===========================================================
@@ -406,7 +424,9 @@ child.addEventListener("click",function(e){
     e.stopPropagation();
 
 });
-
+```
+# Remove Event Listener
+```Javascript
 // ===========================================================
 // removeEventListener()
 // ===========================================================
@@ -422,7 +442,8 @@ button.addEventListener("click",hello);
 button.removeEventListener("click",hello);
 
 // Same function reference is required.
-
+```
+```Javascript
 // ===========================================================
 // once Option
 // ===========================================================
