@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Heading jo baad mein change hogi -->
+    <h1>chai aur code</h1>
+
+    <!-- Button timeout ko stop karne ke liye -->
+    <button id="stop">Stop</button>
+</body>
+
+<script>
+
+    // ------------------------------------------
+    // Example 1: Anonymous function with setTimeout
+    // Yeh code 200ms baad "sameer" print karta.
+    // ------------------------------------------
+
+    // setTimeout(function () {
+    //     console.log("sameer")
+    // }, 200)
+
+
+    // ------------------------------------------
+    // Example 2: Named function with setTimeout
+    // ------------------------------------------
+
+    // Function banaya jo "sameer" print karega
+    const saySameer = function () {
+        console.log("sameer");
+    }
+
+    // 2 second baad function execute hoga
+    setTimeout(saySameer, 2000);
+
+
+    // ------------------------------------------
+    // Heading change karne wala function
+    // ------------------------------------------
+
+    const changecode = function () {
+        document.querySelector('h1').innerHTML = "Best Js Series";
+    }
+
+    // setTimeout ka return value ek timer id hoti hai
+    // Isko variable me store kiya hai taaki baad me clearTimeout use kar saken.
+    const changeme = setTimeout(changecode, 2000);
+
+
+    // Agar ye line uncomment kar doge,
+    // to heading kabhi change nahi hogi.
+    // clearTimeout(changeme);
+
+
+    // ------------------------------------------
+    // Stop button
+    // ------------------------------------------
+
+    document.querySelector("#stop").addEventListener('click', function () {
+
+        // Pending timeout ko cancel kar deta hai
+        clearTimeout(changeme);
+
+        console.log("stopped");
+    });
+
+</script>
+
+</html>
