@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>chai aur javascript</h1>
+
+    <!-- Start aur Stop button -->
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+
+<script>
+
+    // setInterval ek function ko fixed time ke baad baar-baar execute karta hai
+    // setInterval(function(){
+    //     console.log("Sameer",Date.now())
+    // },1000)
+
+
+    // Function ko alag se pass karne ka example
+    const saydate=function(str){
+        console.log(str,Date.now())
+    }
+
+    // setInterval ka ID store karna
+    // const intervalid=setInterval(saydate,1000,"hii")
+
+    // clearInterval se interval ko stop karna
+    clearInterval(intervalid)
+
+
+    // Interval ki ID ko store karne ke liye variable
+    let startInterval;
+
+
+    // Start function banaya
+    const start = function () {
+
+        // Check karta hai ki pehle se interval chal raha hai ya nahi
+        // Agar startInterval empty hai tabhi naya interval start hoga
+        if(!startInterval){
+
+            // setInterval ki ID startInterval me store ho jayegi
+            startInterval = setInterval(function () {
+
+                // Har 1 second baad ye code chalega
+                console.log("Sameer", Date.now())
+
+            }, 1000)
+        }
+    }
+
+
+    // Start button par click hone par start function call hoga
+    document.querySelector('#start').addEventListener('click',
+        function () {
+            start()
+        }
+    )
+
+
+    // Stop function banaya
+    const stop = function () {
+
+        // Stored interval ID ko use karke interval ko stop karta hai
+        clearInterval(startInterval)
+
+
+        // Variable ko dobara empty kar diya
+        // Taaki Start button dobara kaam kar sake
+        startInterval = null
+
+    }
+
+
+    // Stop button par click hone par stop function call hoga
+    document.querySelector('#stop').addEventListener('click',
+        function () {
+            stop()
+        }
+    )
+
+
+</script>
+
+</html>
