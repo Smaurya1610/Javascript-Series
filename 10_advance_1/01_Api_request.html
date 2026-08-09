@@ -65,39 +65,80 @@
 
 </body>
 <script>
-    let followers;
-    let photos;
-    const requestUrl = "https://api.github.com/users/Smaurya1610"
-    const xhr = new XMLHttpRequest()
-    xhr.open('GET', requestUrl)
-    xhr.onreadystatechange = function () {
-        console.log(xhr.readyState);
-        if (xhr.readyState === 4) {
-            // const data=this.responseText//response always string m hi aata hai 
-            const data = JSON.parse(this.responseText)
+   
+// GitHub user data store karne ke liye variables
+let followers;
+let photos;
 
-            // console.log(typeof data)
-            console.log(data)
-            console.log(data.followers);
-            followers = data.followers
-            console.log(data.avatar_url);
-            photos = data.avatar_url;
-        }
+// GitHub API endpoint
+const requestUrl = "https://api.github.com/users/Smaurya1610";
+
+// XMLHttpRequest object create karo
+const xhr = new XMLHttpRequest();
+
+// GET request configure karo
+xhr.open('GET', requestUrl);
+
+// Request state change ko monitor karo
+xhr.onreadystatechange = function () {
+
+    // Current readyState console me print karo
+    console.log(xhr.readyState);
+
+    // Jab request complete ho jaye
+    if (xhr.readyState === 4) {
+
+        // Response JSON string ko JavaScript object me convert karo
+        const data = JSON.parse(this.responseText);
+
+        // Pura response object print karo
+        console.log(data);
+
+        // Followers count print karo
+        console.log(data.followers);
+
+        // Followers value store karo
+        followers = data.followers;
+
+        // Avatar image URL print karo
+        console.log(data.avatar_url);
+
+        // Avatar URL store karo
+        photos = data.avatar_url;
     }
-    xhr.send();
-    const photo = document.querySelector('.photo')
-    const main = document.querySelector('.main')
-    const follower = document.querySelector('.follower')
-    const button = document.querySelector('.submit')
-    button.addEventListener('click', function (e) {
-        e.preventDefault();
-        photo.style.backgroundImage = `url(${photos})`;
-        // photo.style.backgroundImage = photos;
-        photo.style.backgroundSize = "cover";
-        photo.style.backgroundPosition = "center";
-        follower.innerHTML = `Followers: ${followers}`;
-        main.style.backgroundColor = 'black'
-    })
+}
+
+// Request server ko bhejo
+xhr.send();
+
+// Required HTML elements select karo
+const photo = document.querySelector('.photo');
+const main = document.querySelector('.main');
+const follower = document.querySelector('.follower');
+const button = document.querySelector('.submit');
+
+// Button click event
+button.addEventListener('click', function (e) {
+
+    // Default button behavior prevent karo
+    e.preventDefault();
+
+    // GitHub avatar ko div ke background me set karo
+    photo.style.backgroundImage = `url(${photos})`;
+
+    // Image ko poore div me fit karo
+    photo.style.backgroundSize = "cover";
+
+    // Image ko center me rakho
+    photo.style.backgroundPosition = "center";
+
+    // Followers count display karo
+    follower.innerHTML = `Followers: ${followers}`;
+
+    // Main container ka background black karo
+    main.style.backgroundColor = 'black';
+});
+
 
 </script>
 
