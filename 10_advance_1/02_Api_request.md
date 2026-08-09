@@ -18,6 +18,7 @@ Example:
 https://api.example.com/users
 ```
 
+
 ### 2. HTTP Method
 
 Defines the action to perform.
