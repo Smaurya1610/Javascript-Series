@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            background-color: red;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 10px 100px;
+        }
+
+        .photo {
+            background-color: aquamarine;
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+        }
+
+        .follower {
+            background-color: bisque;
+            width: 200px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .submit {
+            width: 90px;
+            height: 50px;
+            margin: 10px 100px;
+            color: red;
+            background-color: beige;
+            border: 1px solid red;
+            box-shadow: 0px 0px 20px red;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body style="background-color: white;">
+    <pre>
+ Actual State    	Technical Name	         Simple Meaning
+   0                	UNSENT           	Request initialize nahi hui
+   1                	OPENED          	open() call ho chuka hai, connection ready hai
+   2            	HEADERS_RECEIVED	 Server ne request receive kar li aur headers bhej diye
+   3	                LOADING	              Response data aa raha hai (processing)
+   4	                  DONE	               Request complete ho gayi
+   </pre>
+    <div class="main">
+        <div class="photo"></div>
+        <div class="follower"></div>
+        <button class="submit">click here</button>
+    </div>
+
+</body>
+<script>
+    let followers;
+    let photos;
+    const requestUrl = "https://api.github.com/users/Smaurya1610"
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', requestUrl)
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            // const data=this.responseText//response always string m hi aata hai 
+            const data = JSON.parse(this.responseText)
+
+            // console.log(typeof data)
+            console.log(data)
+            console.log(data.followers);
+            followers = data.followers
+            console.log(data.avatar_url);
+            photos = data.avatar_url;
+        }
+    }
+    xhr.send();
+    const photo = document.querySelector('.photo')
+    const main = document.querySelector('.main')
+    const follower = document.querySelector('.follower')
+    const button = document.querySelector('.submit')
+    button.addEventListener('click', function (e) {
+        e.preventDefault();
+        photo.style.backgroundImage = `url(${photos})`;
+        // photo.style.backgroundImage = photos;
+        photo.style.backgroundSize = "cover";
+        photo.style.backgroundPosition = "center";
+        follower.innerHTML = `Followers: ${followers}`;
+        main.style.backgroundColor = 'black'
+    })
+
+</script>
+
+</html>
