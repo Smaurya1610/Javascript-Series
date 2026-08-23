@@ -1,137 +1,137 @@
-// ======================= PROMISES =======================
+// // ======================= PROMISES =======================
 
-// Promise = Future value ka placeholder
-// Promise ke 2 parts hote hain:
-// 1. Creation
-// 2. Consumption
+// // Promise = Future value ka placeholder
+// // Promise ke 2 parts hote hain:
+// // 1. Creation
+// // 2. Consumption
 
-// resolve() -> Promise successful
-// reject()  -> Promise failed
+// // resolve() -> Promise successful
+// // reject()  -> Promise failed
 
-const promiseOne = new Promise(function (resolve, reject) {
+// const promiseOne = new Promise(function (resolve, reject) {
 
-    // Async task
-    // Example: DB call, API call, Cryptography, Network request
+//     // Async task
+//     // Example: DB call, API call, Cryptography, Network request
 
-    setTimeout(function () {
-        console.log("Async task is complete");
+//     setTimeout(function () {
+//         console.log("Async task is complete");
 
-        // Promise successfully completed
-        resolve();
+//         // Promise successfully completed
+//         resolve();
 
-    }, 1000);
-});
+//     }, 1000);
+// });
 
-// Consuming the promise
-promiseOne.then(function () {
-    console.log("Promise consumed");
-});
-
-
-// =========================================================
-
-// Promise creation and consumption together
-
-new Promise(function (resolve, reject) {
-
-    setTimeout(() => {
-        console.log("Async task two");
-        resolve();
-    }, 1000);
-
-}).then(function () {
-    console.log("Async 2 resolved");
-});
+// // Consuming the promise
+// promiseOne.then(function () {
+//     console.log("Promise consumed");
+// });
 
 
-// =========================================================
+// // =========================================================
 
-// Passing data through resolve()
+// // Promise creation and consumption together
 
-const promiseThree = new Promise(function (resolve, reject) {
+// new Promise(function (resolve, reject) {
 
-    setTimeout(() => {
+//     setTimeout(() => {
+//         console.log("Async task two");
+//         resolve();
+//     }, 1000);
 
-        // Mostly object pass kiya jata hai
-        // But array, string, number, function etc. bhi pass kar sakte hain
-
-        resolve({
-            username: "chai",
-            email: "chaiaurcodeexample"
-        });
-
-    }, 1000);
-
-});
-
-promiseThree.then(function (user) {
-    console.log(user);
-});
+// }).then(function () {
+//     console.log("Async 2 resolved");
+// });
 
 
-// =========================================================
+// // =========================================================
 
-// Promise chaining
+// // Passing data through resolve()
 
-const promiseFour = new Promise(function (resolve, reject) {
+// const promiseThree = new Promise(function (resolve, reject) {
 
-    setTimeout(function () {
+//     setTimeout(() => {
 
-        let error = false;
+//         // Mostly object pass kiya jata hai
+//         // But array, string, number, function etc. bhi pass kar sakte hain
 
-        if (!error) {
+//         resolve({
+//             username: "chai",
+//             email: "chaiaurcodeexample"
+//         });
 
-            resolve({
-                username: "sameer",
-                password: "1234"
-            });
+//     }, 1000);
 
-        } else {
+// });
 
-            reject("ERROR : Something went wrong");
-        }
-
-    }, 1000);
-
-});
-
-promiseFour
-.then((user) => {
-
-    console.log(user);
-
-    // Next then() ke liye value return kar rahe hain
-    return user.username;
-
-})
-.then((myUsername) => {
-
-    console.log(myUsername);
-
-})
-.catch(function (error) {
-
-    // reject hone par catch execute hoga
-    console.log(error);
-
-})
-.finally(() => {
-
-    // Resolve ya reject dono case mein chalega
-    console.log("The promise is either resolved or rejected");
-
-});
+// promiseThree.then(function (user) {
+//     console.log(user);
+// });
 
 
-// =========================================================
+// // =========================================================
 
-// Async / Await
+// // Promise chaining
+
+// const promiseFour = new Promise(function (resolve, reject) {
+
+//     setTimeout(function () {
+
+//         let error = false;
+
+//         if (!error) {
+
+//             resolve({
+//                 username: "sameer",
+//                 password: "1234"
+//             });
+
+//         } else {
+
+//             reject("ERROR : Something went wrong");
+//         }
+
+//     }, 1000);
+
+// });
+
+// promiseFour
+// .then((user) => {
+
+//     console.log(user);
+
+//     // Next then() ke liye value return kar rahe hain
+//     return user.username;
+
+// })
+// .then((myUsername) => {
+
+//     console.log(myUsername);
+
+// })
+// .catch(function (error) {
+
+//     // reject hone par catch execute hoga
+//     console.log(error);
+
+// })
+// .finally(() => {
+
+//     // Resolve ya reject dono case mein chalega
+//     console.log("The promise is either resolved or rejected");
+
+// });
+
+
+// // =========================================================
+
+// // Async / Await
 
 const promiseFive = new Promise(function (resolve, reject) {
 
     setTimeout(function () {
 
-        let error = true;
+        let error = false;
 
         if (!error) {
 
@@ -170,9 +170,9 @@ async function consumePromiseFive() {
 consumePromiseFive();
 
 
-// =========================================================
+// // =========================================================
 
-// Fetch API using async/await
+// // Fetch API using async/await
 
 async function getAllUsers() {
 
@@ -186,7 +186,9 @@ async function getAllUsers() {
         // json() bhi promise return karta hai
         const data = await response.json();
 
-        console.log(data);
+        console.log( data);
+        // console.log(typeof response);
+        
 
     } catch (error) {
 
@@ -199,9 +201,9 @@ async function getAllUsers() {
 getAllUsers();
 
 
-// =========================================================
+// // =========================================================
 
-// Fetch API using then/catch
+// // Fetch API using then/catch
 
 fetch("https://jsonplaceholder.typicode.com/users")
 
